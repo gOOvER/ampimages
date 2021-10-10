@@ -13,3 +13,4 @@ RUN         apt update \
             && apt-get update && apt-get install yarn
 
 ENTRYPOINT  ["/ampstart.sh"]
+CMD         []

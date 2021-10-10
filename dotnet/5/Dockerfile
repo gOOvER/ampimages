@@ -14,3 +14,4 @@ RUN         apt update -y \
             && apt install -y aspnetcore-runtime-5.0 libgdiplus
 
 ENTRYPOINT  ["/ampstart.sh"]
+CMD         []
