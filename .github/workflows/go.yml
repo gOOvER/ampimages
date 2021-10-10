@@ -9,7 +9,7 @@ on:
       - go/**
 jobs:
   push:
-    name: "yolks:go_${{ matrix.tag }}"
+    name: "ampimages:go_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -36,4 +36,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/parkervcp/yolks:go_${{ matrix.tag }}
+            ghcr.io/goover/ampimages:go_${{ matrix.tag }}

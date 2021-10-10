@@ -1,4 +1,4 @@
-FROM        --platform=$BUILDPLATFORM ghcr.io/parkervcp/yolks:debian
+FROM        cubecoders/ampbase
 
 LABEL       author="Torsten Widmann" maintainer="info@goover.de"
 
@@ -13,9 +13,4 @@ RUN         apt update -y \
             && apt update -y \
             && apt install -y aspnetcore-runtime-2.1 libgdiplus
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
-
-COPY        ./../entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
+ENTRYPOINT  ["/ampstart.sh"]

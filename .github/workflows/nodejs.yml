@@ -9,7 +9,7 @@ on:
       - nodejs/*
 jobs:
   push:
-    name: "yolks:nodejs_${{ matrix.tag }}"
+    name: "ampimages:nodejs_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -37,4 +37,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/parkervcp/yolks:nodejs_${{ matrix.tag }}
+            ghcr.io/goover/ampimages:nodejs_${{ matrix.tag }}
