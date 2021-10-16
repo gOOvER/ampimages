@@ -4,10 +4,10 @@ LABEL       author="Torsten Widmann" maintainer="info@goover.de"
 
 RUN 		    apt update -y \
  			      && apt install -y wget curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 sudo apt-transport-https dirmngr gnupg software-properties-common
-RUN         apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A1EAC8B7
-RUN         add-apt-repository -y 'https://rpardini.github.io/adoptium-deb-installer stable main'
-RUN         apt update \
-            && apt install -y adoptium-17-installer
+RUN         wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+RUN         add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+RUN         apt update
+RUN         apt install adoptopenjdk-17-hotspot -y
 
 ENTRYPOINT  ["/ampstart.sh"]
 CMD         []
