@@ -3,7 +3,7 @@ FROM        cubecoders/ampbase
 LABEL       author="Torsten Widmann" maintainer="info@goover.de"
 LABEL		org.opencontainers.image.source = "https://github.com/gameconfigsx/ampimages"
 
-RUN 		apt update -y \
+RUN 		apt update -y
 RUN			apt install -y wget curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 sudo apt-transport-https dirmngr gnupg software-properties-common
 RUN         wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 RUN         add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
