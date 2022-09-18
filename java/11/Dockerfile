@@ -5,10 +5,11 @@ LABEL		org.opencontainers.image.source = "https://github.com/gameconfigsx/ampima
 
 RUN 		apt update -y
 RUN			apt install -y wget curl ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 sudo apt-transport-https dirmngr gnupg software-properties-common
-RUN         wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-RUN         add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+RUN         mkdir -p /etc/apt/keyrings
+RUN         wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc
+RUN         echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
 RUN         apt update
-RUN         apt install adoptopenjdk-11-hotspot -y
+RUN         apt install temurin-11-jdk -y
 
 ENTRYPOINT  ["/ampstart.sh"]
 CMD         []
