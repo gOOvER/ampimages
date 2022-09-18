@@ -1,6 +1,7 @@
 FROM        cubecoders/ampbase
 
 LABEL       author="Torsten Widmann" maintainer="info@goover.de"
+LABEL		org.opencontainers.image.source = "https://github.com/gameconfigsx/ampimages"
 
 RUN         apt update \
             && apt -y upgrade \
