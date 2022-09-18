@@ -11,7 +11,7 @@ RUN         apt update -y \
             && dpkg -i packages-microsoft-prod.deb \
             && rm packages-microsoft-prod.deb \
             && apt update -y \
-            && apt install -y aspnetcore-runtime-3.1 libgdiplus
+            && apt install -y aspnetcore-runtime-3.1 dotnet-sdk-3.1 libgdiplus
 
 ENTRYPOINT  ["/ampstart.sh"]
 CMD         []
