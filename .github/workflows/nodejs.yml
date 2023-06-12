@@ -10,7 +10,7 @@ on:
       - nodejs/*
 jobs:
   push:
-    name: "ampimages:nodejs_${{ matrix.tag }}"
+    name: "amp:nodejs_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -21,11 +21,11 @@ jobs:
           - 16
           - 17
           - 18
+          - 19
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v2
         with:
-          version: "v0.9.1"
           buildkitd-flags: --debug
       - uses: docker/login-action@v2
         with:
@@ -39,4 +39,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/gameconfigsx/ampimages:nodejs_${{ matrix.tag }}
+            ghcr.io/goover/ampimages:nodejs_${{ matrix.tag }}
