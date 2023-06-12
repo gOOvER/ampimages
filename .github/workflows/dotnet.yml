@@ -1,4 +1,4 @@
-name: build dotnet
+name: build amp_dotnet
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -39,4 +39,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/goover/ampimages:dotnet_${{ matrix.tag }}
+            ghcr.io/goover/amp:dotnet_${{ matrix.tag }}

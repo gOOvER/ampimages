@@ -1,4 +1,4 @@
-name: build wine
+name: build amp_wine
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -13,7 +13,7 @@ env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 jobs:
   push:
-    name: "amp:wine:${{ matrix.tag }}"
+    name: "amp:wine_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -39,4 +39,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/goover/wine:${{ matrix.tag }}
+            ghcr.io/goover/amp:wine_${{ matrix.tag }}

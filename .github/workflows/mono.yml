@@ -1,4 +1,4 @@
-name: build mono
+name: build amp_mono
 on:
   workflow_dispatch:
   schedule:
@@ -34,4 +34,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/goover/ampimages:mono_${{ matrix.tag }}
+            ghcr.io/goover/amp:mono_${{ matrix.tag }}
